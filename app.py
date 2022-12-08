@@ -27,6 +27,7 @@ app.debug= True
 def index():
     data = request.form
     sujet= data["sujet"]
+    nom= data["nom"]
     email= data["email"]
     corps= data["corps"]
     liste= corps.split(" ")
@@ -46,7 +47,7 @@ def index():
             
         msg = Message(subject=sujet,
             recipients=["consultmary0@gmail.com"], # use your email for testing
-            body="DE: "+email+" \n Message: "+corps+"`\n",
+            body="DE: "+email+" \n Nom complet: "+nom+" \n Message: "+corps+"`\n",
             sender=app.config.get("brightlembo91@gmail.com"))
         mail.send(msg)
         
