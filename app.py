@@ -51,8 +51,10 @@ def index():
             sender=app.config.get("brightlembo91@gmail.com"))
         mail.send(msg)
         
-        return "email envoyé"
+        return 0
     else:
-        return "impossible"
+        return 1
+if __name__=="__main__":
+    app.run(host='0.0.0.0',port=8000)
 
 #app.run(debug = True, port = 5000)
